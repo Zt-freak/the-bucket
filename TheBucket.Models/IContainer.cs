@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TheBucket.Models
+{
+    public interface IContainer
+    {
+        double Capacity { get; }
+        double Contents { get; set; }
+        double GetOverflow(double addedVolume);
+        void Fill(double addedVolume);
+        void Pour(double transferVolume, IContainer otherContainer, FillProtocol protocol);
+        void Empty();
+        event EventHandler<CapacityReachedEventArgs> CapacityReached;
+    }
+
+    public enum FillProtocol
+    {
+        Overflow,
+        Fill,
+        Cancel
+    }
+
+    public class CapacityReachedEventArgs : EventArgs
+    {
+        public double Overflow { get; set; }
+    }
+}
