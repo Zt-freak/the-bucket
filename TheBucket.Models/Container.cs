@@ -68,7 +68,7 @@ namespace TheBucket.Models
                     };
                     break;
             }
-            otherContainer.Fill(transferVolume);
+            otherContainer.Fill(pouredVolume);
             Contents -= pouredVolume;
         }
 
@@ -79,8 +79,7 @@ namespace TheBucket.Models
 
         protected virtual void OnCapacityReached(CapacityReachedEventArgs e)
         {
-            EventHandler<CapacityReachedEventArgs> handler = CapacityReached;
-            handler?.Invoke(this, e);
+            CapacityReached?.Invoke(this, e);
         }
 
         public event EventHandler<CapacityReachedEventArgs> CapacityReached;
