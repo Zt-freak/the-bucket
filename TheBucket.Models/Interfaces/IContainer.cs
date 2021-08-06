@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TheBucket.Models
+namespace TheBucket.Models.Interfaces
 {
     public interface IContainer
     {
-        double Capacity { get; }
+        double Capacity { get; set; }
         double Contents { get; set; }
         double GetOverflow(double addedVolume);
         void Fill(double addedVolume);

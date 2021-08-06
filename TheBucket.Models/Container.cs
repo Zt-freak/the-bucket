@@ -1,10 +1,21 @@
 ﻿using System;
+using TheBucket.Models.Interfaces;
 
 namespace TheBucket.Models
 {
     public abstract class Container : IContainer
     {
-        public double Capacity { get; }
+        protected double _capacity = 0;
+        public virtual double Capacity
+        {
+            get => _capacity;
+            set {
+                if (Capacity == 0)
+                {
+                    _capacity = value;
+                }
+            }
+        }
         public double Contents { get; set; }
 
         public void Empty()
@@ -20,6 +31,10 @@ namespace TheBucket.Models
                 CapacityReachedEventArgs args = new CapacityReachedEventArgs();
                 args.Overflow = overflow;
                 OnCapacityReached(args);
+            }
+            else if(addedVolume < 0)
+            {
+                return;
             }
             else
             {
@@ -56,13 +71,13 @@ namespace TheBucket.Models
                     };
                     break;
             }
-            otherContainer.Contents += pouredVolume;
+             otherContainer.Fill(pouredVolume);
             Contents -= pouredVolume;
         }
 
         public double GetOverflow(double addedVolume)
         {
-            return Capacity - Contents - addedVolume;
+            return addedVolume - Capacity - Contents;
         }
 
         protected virtual void OnCapacityReached(CapacityReachedEventArgs e)
