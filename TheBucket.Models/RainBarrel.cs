@@ -14,24 +14,17 @@
 
         public RainBarrel(double capacity, double initialContents)
         {
-            Capacity = capacity;
+            if (capacity == 80 || capacity == 100 || capacity == 120)
+            {
+                
+                _capacity = capacity;
+            }
+            else if (Capacity == 0)
+            {
+                _capacity = 80;
+            }
             Contents = initialContents;
         }
 
-        public override double Capacity
-        {
-            get => _capacity;
-            set
-            {
-                if (Capacity == 0 && (value == 80 || value == 100 || value == 120))
-                {
-                    _capacity = value;
-                }
-                else if (Capacity == 0)
-                {
-                    _capacity = 80;
-                }
-            }
-        }
     }
 }

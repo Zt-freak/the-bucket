@@ -5,17 +5,12 @@ namespace TheBucket.Models
 {
     public abstract class Container : IContainer
     {
-        protected double _capacity = 0;
-        public virtual double Capacity
+        public Container(double capacity)
         {
-            get => _capacity;
-            set {
-                if (Capacity == 0)
-                {
-                    _capacity = value;
-                }
-            }
+            _capacity = capacity;
         }
+        private double _capacity;
+        public double Capacity { get { return _capacity; } }
         public double Contents { get; set; }
 
         public void Empty()

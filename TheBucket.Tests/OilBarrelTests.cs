@@ -13,16 +13,5 @@ namespace TheBucket.Tests
 
             Assert.Equal(159, testContainer.Capacity);
         }
-
-        [Fact]
-        public void AttemptSettingCapacityAfterInitTest()
-        {
-            OilBarrel testContainer = new OilBarrel();
-
-            testContainer.Capacity = 30;
-
-            Assert.Equal(159, testContainer.Capacity);
-
-        }
     }
 }

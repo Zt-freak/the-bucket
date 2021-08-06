@@ -4,7 +4,7 @@ namespace TheBucket.Models.Interfaces
 {
     public interface IContainer
     {
-        double Capacity { get; set; }
+        double Capacity { get; }
         double Contents { get; set; }
         double GetOverflow(double addedVolume);
         void Fill(double addedVolume);
