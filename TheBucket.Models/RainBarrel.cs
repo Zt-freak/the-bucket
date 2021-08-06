@@ -16,15 +16,13 @@
         {
             if (capacity == 80 || capacity == 100 || capacity == 120)
             {
-                
-                _capacity = capacity;
+                Capacity = capacity;
             }
             else if (Capacity == 0)
             {
-                _capacity = 80;
+                Capacity = 80;
             }
             Contents = initialContents;
         }
-
     }
 }
