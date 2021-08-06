@@ -28,8 +28,10 @@ namespace TheBucket.Models
             double overflow = GetOverflow(addedVolume);
             if (overflow > 0)
             {
-                CapacityReachedEventArgs args = new CapacityReachedEventArgs();
-                args.Overflow = overflow;
+                CapacityReachedEventArgs args = new()
+                {
+                    Overflow = overflow
+                };
                 OnCapacityReached(args);
             }
             else if(addedVolume < 0)
@@ -71,7 +73,7 @@ namespace TheBucket.Models
                     };
                     break;
             }
-             otherContainer.Fill(pouredVolume);
+            otherContainer.Fill(pouredVolume);
             Contents -= pouredVolume;
         }
 
