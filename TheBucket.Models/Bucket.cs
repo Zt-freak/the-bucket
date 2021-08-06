@@ -2,6 +2,7 @@
 {
     public class Bucket : Container
     {
+        public new readonly double Capacity;
         public Bucket() : this(12, 0)
         {
 
@@ -18,20 +19,5 @@
             Contents = initialContents;
         }
 
-        public override double Capacity
-        {
-            get => _capacity;
-            set
-            {
-                if (_capacity == 0)
-                {
-                    _capacity = value;
-                    if (value < 10)
-                    {
-                        _capacity = 10;
-                    }
-                }
-            }
-        }
     }
 }

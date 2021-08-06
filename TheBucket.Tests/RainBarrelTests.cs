@@ -27,16 +27,5 @@ namespace TheBucket.Tests
 
             Assert.Equal(expectedCapacity, testContainer.Capacity);
         }
-
-        [Fact]
-        public void AttemptSettingCapacityAfterInitTest()
-        {
-            RainBarrel testContainer = new RainBarrel(80);
-
-            testContainer.Capacity = 30;
-
-            Assert.Equal(80, testContainer.Capacity);
-
-        }
     }
 }

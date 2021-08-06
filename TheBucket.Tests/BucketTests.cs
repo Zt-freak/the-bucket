@@ -27,17 +27,6 @@ namespace TheBucket.Tests
             Assert.Equal(expectedCapacity, testContainer.Capacity);
         }
 
-        [Fact]
-        public void AttemptSettingCapacityAfterInitTest()
-        {
-            Bucket testContainer = new Bucket(15);
-
-            testContainer.Capacity = 30;
-
-            Assert.Equal(15, testContainer.Capacity);
-
-        }
-
         [Theory]
         [InlineData(1, -11)]
         [InlineData(5, -7)]
