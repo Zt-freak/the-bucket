@@ -2,36 +2,38 @@
 {
     public class RainBarrel : Container
     {
-        public RainBarrel() : this(80, 0)
+        public RainBarrel() : this(RainBarrelVolume.Small, 0)
         {
 
         }
 
-        public RainBarrel(double capacity) : this(capacity, 0)
+        public RainBarrel(RainBarrelVolume capacity) : this(capacity, 0)
         {
 
         }
 
-        public RainBarrel(double capacity, double initialContents)
+        public RainBarrel(RainBarrelVolume capacity, double initialContents)
         {
-            Capacity = capacity;
+            switch (capacity)
+            {
+                case RainBarrelVolume.Small:
+                    Capacity = 80;
+                    break;
+                case RainBarrelVolume.Medium:
+                    Capacity = 100;
+                    break;
+                case RainBarrelVolume.Large:
+                    Capacity = 120;
+                    break;
+            }
             Contents = initialContents;
         }
+    }
 
-        public override double Capacity
-        {
-            get => _capacity;
-            set
-            {
-                if (Capacity == 0 && (value == 80 || value == 100 || value == 120))
-                {
-                    _capacity = value;
-                }
-                else if (Capacity == 0)
-                {
-                    _capacity = 80;
-                }
-            }
-        }
+    public enum RainBarrelVolume
+    {
+        Small,
+        Medium,
+        Large
     }
 }
